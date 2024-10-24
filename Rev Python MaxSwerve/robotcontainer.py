@@ -61,11 +61,9 @@ class RobotContainer:
         and then passing it to a JoystickButton.
         """
         
-        # if self.driverController.getLeftBumper():
-        #     DriveSubsystem.setX()
-
-        # if self.driverController.getRightBumper():
-        #     DriveSubsystem.zeroHeading()
+        self.driverController.a().onTrue(
+            commands2.RunCommand(lambda: self.robotDrive.zeroHeading(), [self.robotDrive])
+        )
 
     def disablePIDSubsystems(self) -> None:
         """Disables all ProfiledPIDSubsystem and PIDSubsystem instances.
